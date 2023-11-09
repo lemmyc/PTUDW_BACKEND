@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const MongoDB = require("../utils/mongodb.utils");
 
 // const autoIncrement = require("mongoose-auto-increment");
-const ChiTietDatHangSchema = require("./ChiTietDatHang.model").schema
+// const ChiTietDatHangSchema = require("./ChiTietDatHang.model").schema
 const DonDatHang = new mongoose.Schema(
     {
-        makhach:{
+        makhachhang:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "KhachHang",
         },
@@ -19,13 +19,44 @@ const DonDatHang = new mongoose.Schema(
         },
         ngaygh:{
             type: Date,
-            required: true
+            required: false,
         },
-        chitietdathang:[ChiTietDatHangSchema],
+        danhsachhanghoa:[
+            {
+                mahanghoa: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "HangHoa",
+                    required: true
+                },
+                soluong: {
+                    type: Number,
+                    required: true
+                },
+                giagoc: {
+                    type: Number,
+                    required: false,
+                    default: 0
+                },
+                phantramgiam: {
+                    type: Number,
+                    required: false,
+                    default: 0
+                },
+                giadagiam: {
+                    type: Number,
+                    required: false,
+                    default: 0
+                }
+            }
+        ],
+        tongtien:{
+            type: Number,
+            required: true,
+            default: 0
+        },
         trangthaigh:{
             type: Boolean,
 			default: false,
-			require: true,
         },
         isDeleted: {
 			type: Boolean,

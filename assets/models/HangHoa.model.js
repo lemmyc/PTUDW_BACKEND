@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
-const HinhAnhHHSchema = require("./HinhAnhHH.model").schema
 const HangHoa = new mongoose.Schema(
     {
         tenhanghoa:{
+            type: String,
+            required: true
+        },
+        loaihanghoa:{
+            type: String,
+            required: true
+        },
+        urlhinh:{
             type: String,
             required: true
         },
@@ -18,11 +25,15 @@ const HangHoa = new mongoose.Schema(
             type: Number,
             required: true
         },
+        giamgia:{
+            type: Number,
+            required: false,
+            default: 0
+        },
         ghichu:{
             type: String,
-            required: true
-        },
-        hinhanhhh:[HinhAnhHHSchema]
+            required: false
+        }
     },
 	{
 		timestamps: true,
