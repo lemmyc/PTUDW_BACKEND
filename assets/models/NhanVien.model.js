@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const MongoDB = require("../utils/mongodb.utils");
 
-const DonDatHangSchema = require("./DonDatHang.model").schema
 const NhanVien = new mongoose.Schema(
     {
         hoten:{
@@ -16,7 +15,6 @@ const NhanVien = new mongoose.Schema(
             type: String,
             required: true
         },
-        dondathang:[DonDatHangSchema],
         sodienthoai:{
             type: String,
             required: true
