@@ -78,7 +78,7 @@ class AuthController {
 				);
 			return res.status(200).json({
 				...rest,
-				info: pt,
+				info: nhanVien,
 			});
 		} catch (error) {
 			res.status(401).send({
