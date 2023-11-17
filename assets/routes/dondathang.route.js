@@ -3,6 +3,7 @@ const {
     tiepNhanDonDatHang,
 	layTatCaDonDatHang,
 	layMotDonDatHang,
+	capNhatDonDatHang,
 	xoaDonDatHang,
 } = require("../controller/dondathang.controller");
 const {
@@ -18,6 +19,7 @@ router
 router
 	.route("/:id")
 	.get(userAuth, layMotDonDatHang)
+	.put(userAuth, capNhatDonDatHang)
 	.delete(userAuth, xoaDonDatHang);
 
 module.exports = router;

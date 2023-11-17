@@ -116,6 +116,22 @@ class DonDatHangController {
 			});
 		}
 	}
+	async capNhatDonDatHang(req, res) {
+		try {
+			const id = req.params.id;
+			const result = await DonDatHangModel.updateOne(
+				{
+					_id: id,
+				},
+				req.body
+			);
+			return res.status(200).json(result);
+		} catch (error) {
+			res.send({
+				msg: error.message,
+			});
+		}
+	}
 	async xoaDonDatHang(req, res) {
 		try {
 			const id = req.params.id;
